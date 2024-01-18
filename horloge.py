@@ -3,8 +3,8 @@ import tkinter as tk
 from time import strftime
 from pygame import mixer
 from customtkinter import *
-import customtkinter as ctk 
-# Utilisation de la bibliothèque customtkinter 
+import customtkinter as ctk
+# Utilisation de la bibliothèque customtkinter
 # pour styliser le format traditionnel de l'interphace graphique fournie par tkinter
 # pour installer cette bibliothèque : pip install customtkinter
 
@@ -14,7 +14,7 @@ fenetre.title('Horloge')
 
 # Configuration de l'apparence de la fenêtre
 fenetre.configure(fg_color="black")
-fenetre.geometry("500*620")
+fenetre.resizable(False, False)
 set_default_color_theme("blue")
 
 # Initialisation des variables pour contrôler l'état du programme
@@ -109,7 +109,7 @@ def basculer_format():
 # Création des composants graphiques
 
 # Étiquettes et champs d'entrée pour la saisie manuelle de l'heure
-heure_label = ctk.CTkLabel(fenetre, font=("bahnschrift", 35), text_color="white", text="Heures/Minutes/Secondes suivant le Format 24h :")
+heure_label = ctk.CTkLabel(fenetre, font=("bahnschrift", 20), text_color="white", text="Heures/Minutes/Secondes suivant le Format 24h :")
 heure_label.grid(row=0, column=1, sticky=tk.W)
 
 heure_entry = ctk.CTkEntry(fenetre, font=("bahnschrift", 22), width=62, height=48, border_width=0, corner_radius=18)
@@ -122,7 +122,7 @@ secondes_entry = ctk.CTkEntry(fenetre,font=("bahnschrift", 22), width=62, height
 secondes_entry.grid(row=0, column=4,  padx=2 ,pady=2)
 
 # Étiquettes et champs d'entrée pour la saisie de l'heure de l'alarme
-alarmh_label = ctk.CTkLabel(fenetre,  font=("bahnschrift", 35),text_color="white",text="Heure/Minute/Seconde Alarme suivant le Format 24h :")
+alarmh_label = ctk.CTkLabel(fenetre,  font=("bahnschrift", 20),text_color="white",text="Heure/Minute/Seconde Alarme suivant le Format 24h :")
 alarmh_label.grid(row=2, column=1 ,sticky=tk.W)
 
 alarmh_entry = ctk.CTkEntry(fenetre, font=("bahnschrift", 22), width=62, height=48, border_width=0, corner_radius=18)
@@ -135,30 +135,30 @@ alarms_entry = ctk.CTkEntry(fenetre, font=("bahnschrift", 22), width=62, height=
 alarms_entry.grid(row=2, column=4,  padx=2,pady=2)
 
 # Bouton pour définir l'heure de l'alarme
-programmer_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30), width=350, height=48, fg_color="white", text_color="black",text="Programmer l'alarme", command=programmer_alarme)
+programmer_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15), width=180, height=48, fg_color="white", text_color="black",text="Programmer l'alarme", command=programmer_alarme)
 programmer_bouton.grid(row=2, column=5, padx=2 ,pady=2)
 
 # Bouton pour arrêter le son de l'alarme
-arreter_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30), width=350, height=48,fg_color="white", text_color="black",text="Arrêter la sonnerie", command=arreter_sonnerie)
+arreter_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15), width=180, height=48,fg_color="white", text_color="black",text="Arrêter la sonnerie", command=arreter_sonnerie)
 arreter_bouton.grid(row=2, column=6, padx=2 ,pady=2)
 
 # Boutons pour contrôler les mises à jour de l'heure
-regler_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30), width=350, height=48, fg_color="white", text_color="black",text="Régler l'heure", command=changement_heure)
+regler_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15), width=180, height=48, fg_color="white", text_color="black",text="Régler l'heure", command=changement_heure)
 regler_bouton.grid(row=0, column=5, padx=2 ,pady=2)
 
-regler_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30), width=350, height=48, fg_color="white", text_color="black",text="Revenir à l'heure", command=changement_heure)
+regler_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15), width=180, height=48, fg_color="white", text_color="black",text="Revenir à l'heure", command=changement_heure)
 regler_bouton.grid(row=0, column=6, padx=2 ,pady=2)
 
 # Bouton pour basculer entre le format horaire 12 heures et 24 heures
-format_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30), width=350, height=48,fg_color="white", text_color="black",text="Basculer Format", command=basculer_format)
+format_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15), width=180, height=48,fg_color="white", text_color="black",text="Basculer Format", command=basculer_format)
 format_bouton.grid(row=4, column=5, padx=2 ,pady=2)
 
 # Bouton pour mettre en pause/reprendre les mises à jour de l'heure
-pause_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 30),width=350, height=48,fg_color="white",text_color="black",text="Pause", command=pause_alarm)
+pause_bouton = ctk.CTkButton(fenetre, font=("bahnschrift", 15),width=180, height=48,fg_color="white",text_color="black",text="Pause", command=pause_alarm)
 pause_bouton.grid(row=4, column=6, padx=2 ,pady=2)
 
 # Étiquette pour afficher l'heure actuelle
-label = ctk.CTkLabel(fenetre, font=("bahnschrift", 100), width=900, fg_color="black", text_color="white")
+label = ctk.CTkLabel(fenetre, font=("bahnschrift", 70), width=500, fg_color="black", text_color="white")
 label.grid(row=9, column=0, columnspan=2)
 
 # Initialisation et démarrage de la bibliothèque pour la lecture du son
